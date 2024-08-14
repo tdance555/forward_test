@@ -154,25 +154,25 @@
 
                                 $('.result').fadeIn();
 
-                                posturl="http://127.0.0.1:8000/trips/api/post/"
-                                $.ajax({
-                                    url: posturl+phone,  // 替换为你的更新 API
-                                    type: "POST",
-                                    data:
-                                     num{
-                                        phone: phone,
-                                        question_number: num,
-                                        status: status,
-                                        user_answer: userChoice,
-                                    },
-                                    headers: { "X-CSRFToken": getCookie("csrftoken") },
-                                    success: function(response) {
-                                        console.log('Status updated successfully:', response);
-                                    },
-                                    error: function(xhr, status, error) {
-                                        console.error('Failed to update status:', error);
-                                    }
-                                });
+                                // posturl="http://127.0.0.1:8000/trips/api/post/"
+                                // $.ajax({
+                                //     url: posturl+phone,  // 替换为你的更新 API
+                                //     type: "POST",
+                                //     data:
+                                //      num{
+                                //         phone: phone,
+                                //         question_number: num,
+                                //         status: status,
+                                //         user_answer: userChoice,
+                                //     },
+                                //     headers: { "X-CSRFToken": getCookie("csrftoken") },
+                                //     success: function(response) {
+                                //         console.log('Status updated successfully:', response);
+                                //     },
+                                //     error: function(xhr, status, error) {
+                                //         console.error('Failed to update status:', error);
+                                //     }
+                                // });
                             });
                         },
                         error: function(xhr, status, error) {
