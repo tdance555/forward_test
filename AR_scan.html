@@ -102,12 +102,12 @@
             let targetFoundOnce = false;
 
             // 从 cookie 中取出名为 'level' 的值，并命名为 num
-            let num = getCookie('level');
+            // let num = getCookie('level');
             // alert(num);//測試是否成功轉成變數
             // console.log('The value of num is:', num);
             // 你可以在这里根据 num 的值执行其他操作
 
-            let phone = getCookie('phone');
+            // let phone = getCookie('phone');
 
             var mindarEntity = document.querySelector('a-entity[mindar-image-target]');
             mindarEntity.addEventListener('targetFound', function(event) {
@@ -116,11 +116,11 @@
 
                     $('.center-box').fadeIn();
 
-                    mainurl="http://127.0.0.1:8000/trips/api/question/";
+                    mainUrl="http://127.0.0.1:8000/trips/api/question/";
                     // num=1;//測試變數是否可以放入url
 
                     $.ajax({
-                        url: mainurl+num,
+                        url: mainUrl+getCookie('level'),
                         type: "GET",
                         dataType: "json",
                         success: function(Question) {
