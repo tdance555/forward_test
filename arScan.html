@@ -1,7 +1,8 @@
 <!-- @Author: YI-SYUAN -->
 <!-- 29個掃描檔複製用 -->
 <!-- 已完成:1.取出資料並呈現、2.AR功能 -->
-<!-- 待完成:資料存入 -->
+<!-- 待完成:1.資料存入、2.畫面設計、3.答案儲存、4.跳轉 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
-        .back-button {
+        .backButton {
             position: fixed;
             top: 10px;
             left: 10px;
@@ -23,7 +24,7 @@
             z-index: 1000;
         }
   
-        .center-box {
+        .centerBox {
             position: fixed;
             top: 50%;
             left: 50%;
@@ -58,7 +59,7 @@
             font-weight: bold;
         }
 
-        .result img {
+        .resultImg {
             max-width: 100%;
             height: auto;
         }
@@ -68,7 +69,7 @@
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 </head>
 <body>
-    <button class="back-button" onclick="BackToPagepoint()"></button>
+    <button class="backButton" onclick="backPage()"></button>
     <h1></h1>
     <a-scene 
         mindar-image="imageTargetSrc: ../mind/targets_03.mind; uiError: no; uiLoading: no; uiScanning: no;" 
@@ -86,11 +87,11 @@
         <a-entity mindar-image-target="targetIndex: 0"></a-entity>
     </a-scene>
 
-    <div class="center-box"></div>
+    <div class="centerBox"></div>
 
     <script>
 
-        // 函数：获取指定名称的 cookie 值
+        // 函數：獲取指定名稱的 cookie 值
         function getCookie(name) {
             let nameEQ = name + "=";
             let ca = document.cookie.split(';');
@@ -105,20 +106,12 @@
         $(document).ready(function() {
             let targetFoundOnce = false;
 
-            // 从 cookie 中取出名为 'level' 的值，并命名为 num
-            // let num = getCookie('level');
-            // alert(num);//測試是否成功轉成變數
-            // console.log('The value of num is:', num);
-            // 你可以在这里根据 num 的值执行其他操作
-
-            // let phone = getCookie('phone');
-
             var mindarEntity = document.querySelector('a-entity[mindar-image-target]');
             mindarEntity.addEventListener('targetFound', function(event) {
                 if (!targetFoundOnce) {
                     targetFoundOnce = true;
 
-                    $('.center-box').fadeIn();
+                    $('.centerBox').fadeIn();
 
                     mainUrl="http://127.0.0.1:8000/trips/api/question/";
                     // num=1;//測試變數是否可以放入url
@@ -137,7 +130,7 @@
                                 <button class="option" data-choice="D">${Question.choiceD}</button>
                                 <div class="result"></div>
                             `;
-                            $('.center-box').html(content);
+                            $('.centerBox').html(content);
 
                             // 為每個選項按鈕添加點擊事件
                             $('.option').click(function() {
@@ -160,7 +153,7 @@
 
                                 // posturl="http://127.0.0.1:8000/trips/api/post/"
                                 // $.ajax({
-                                //     url: posturl+phone,  // 替换为你的更新 API
+                                //     url: posturl+phone,  // 替換為你的更新 API
                                 //     type: "POST",
                                 //     data:
                                 //      num{
@@ -188,7 +181,7 @@
                 }
             });
         });
-        function BackToPagepoint() {
+        function backPage() {
             window.location.href = "http://127.0.0.1:8000/trips/profile/";//解決CROS問題
         }
     </script>
