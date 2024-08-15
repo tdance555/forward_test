@@ -92,7 +92,12 @@
             <h2 class="text2">每條路線請選擇兩關進行闖關</h2>
             <h2 class="text2">集滿6關即可通關</h2>
         </div>
-        <button type="button" onclick="location.href='{% url 'road' %}'">開始闖關</button>
+        <button type="button" onclick="redirectToPage()">開始闖關</button>
     </div>
+    <script>
+        function redirectToPage() {
+            window.location.href = "roadChoice";
+        }
+    </script>
 </body>
 </html>

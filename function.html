@@ -15,7 +15,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/WebAR_Background.png?raw=true');
+            background-image: url('https://github.com/tdance555/tdance2024/blob/main/media/vendor_icons/%E6%8D%95%E9%AD%9A%E8%97%8D.png?raw=true');
             /* 替換為你的背景圖片 URL */
             background-size: 100% 100%;
             /* 確保圖片覆蓋整個背景 */
@@ -32,7 +32,7 @@
             box-sizing: border-box;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
             /* 確保容器至少占滿整個視口高度 */
             /*background: rgba(255, 255, 255, 0.8); */
@@ -40,27 +40,55 @@
         }
 
         .content {
-            /*background-color: #000000;*/
+            /* background-color: #000000; */
             padding: 20px;
             border-radius: 5px;
             text-align: center;
             width: 100%;
-            max-width: 500px;
+            max-width: 375px;
             padding-top: 50px;
             /*box-shadow: 0 4px 8px rgba(0,0,0,0.1);  輕微陰影效果 */
         }
 
-        button {
-            background-color: cadetblue;
-            border: none;
+        .buttonStart {
+            background-color: #4F74AB;
             color: white;
             padding: 20px 42px;
             text-align: center;
             text-decoration: auto;
             display: inline-block;
-            font-size: 35px;
-            border-radius: 73px;
-            border: 5px solid white;
+            font-size: 20px;
+            border-radius: 50px;
+            border: 5px solid #EAD73B;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .buttonOther{
+            background-color: cadetblue;
+            color: white;
+            padding: 20px 42px;
+            text-align: center;
+            text-decoration: auto;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 5px solid #EAD73B;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        h1{
+            margin-top: 50px;
+            font-size: 20px;
+        }
+
+        h2{
+            font-size: 18px;
+        }
+        .h2Row2{
+            margin-top: -10px;
+            margin-bottom: 55px;
         }
 
         @media (min-width: 320px) and (max-width: 480px) {
@@ -98,16 +126,30 @@
 <body>
     <div class="container">
         <div class="content">
-            <!-- <h1>Welcome to the Responsive Page</h1> -->
-            <!-- <p>This page is designed to fit within mobile device dimensions.</p> -->
-            <button onclick="redirectToPage()" class="btn">開始旅行</button>
+            <h1>親愛的旅者，歡迎來到休憩小屋</h1>
+            <h2>這裡是您休憩的地點</h2>
+            <h2 class="h2Row2">您可以隨時回來並選擇你想做的事</h2>
+            <button onclick="ToGamePage()" class="buttonStart">選擇旅遊路線</button>
+            <button onclick="ToTeachPage()" class="buttonOther">如何遊玩遊戲</button>
+            <button onclick="ToMapPage()" class="buttonOther">查詢活動地圖</button>
+            <button onclick="ToOgPage()" class="buttonOther">關於本次活動</button>
         </div>
     </div>
 
     <script>
-        function redirectToPage() {
-            window.location.href = "user_profile.html";
+        function ToGamePage() {
+            window.location.href = "roadChoice";
         }
+        function ToTeachPage() {
+            window.location.href = "manual";
+        }
+        function ToMapPage() {
+            window.location.href = "map";
+        }
+        function ToOgPage() {
+            window.location.href = "sponsor";
+        }
+
     </script>
 </body>
 

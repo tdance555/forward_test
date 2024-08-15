@@ -198,7 +198,7 @@
                         // 設置 Cookie 保存手機號碼
                         document.cookie = "phone=" + iti.getNumber() + "; path=/; max-age=" + (60 * 60 * 24 * 30);
                         // 成功後重新導向
-                        window.location.href = "manual.html";
+                        window.location.href = "manual";
                     },
                     error: function (xhr, status, error) {
                         console.error('錯誤:', error);
